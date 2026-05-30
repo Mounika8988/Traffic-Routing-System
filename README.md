@@ -1,4 +1,4 @@
-# 🚦 Smart Traffic Prediction & Emergency Vehicle Routing System
+# Smart Traffic Prediction & Emergency Vehicle Routing System
 
 > An AI-powered intelligent transportation system that reduces emergency response time using **Machine Learning** for congestion prediction and **Dijkstra's Algorithm** for real-time optimal routing.
 
@@ -9,7 +9,7 @@
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 
 In modern cities, emergency vehicles (ambulances, fire trucks, police) are frequently delayed by traffic congestion. Traditional GPS systems only optimize for **shortest distance** — they do not:
 
@@ -21,7 +21,7 @@ This system solves all three problems.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌────────────────────────────────────────────────────────┐
@@ -49,7 +49,7 @@ This system solves all three problems.
 
 ---
 
-## ✨ Features
+## Features
 
 | Feature | Technology |
 |---------|-----------|
@@ -62,7 +62,7 @@ This system solves all three problems.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 smart_traffic_system/
@@ -98,7 +98,7 @@ smart_traffic_system/
 
 ---
 
-## ⚡ Quick Start
+## Quick Start
 
 ### 1. Clone and Setup
 
@@ -136,7 +136,7 @@ Open your browser: **http://localhost:5000**
 
 ---
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### Traffic Prediction
 ```http
@@ -183,7 +183,7 @@ POST /api/route/simulate_incident
 
 ---
 
-## 📊 ML Model Performance
+## ML Model Performance
 
 ```
 Test Accuracy: 98.60%
@@ -203,7 +203,7 @@ Top Features:
 
 ---
 
-## 🗺️ Road Network
+## Road Network
 
 The system models 7 intersections and 11 road segments in Hyderabad:
 
@@ -219,7 +219,7 @@ Hospital ──R1──→ Junction_A ──R2──→ Junction_B
 
 ---
 
-## 🚀 Deployment (Render / Railway)
+## Deployment (Render / Railway)
 
 ```bash
 # Install gunicorn
@@ -237,7 +237,7 @@ DEBUG=False
 
 ---
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 - [ ] Live Google Maps / OpenStreetMap integration
 - [ ] IoT traffic sensor data ingestion
@@ -249,7 +249,7 @@ DEBUG=False
 
 ---
 
-## 👩‍💻 Tech Stack Summary
+## Tech Stack Summary
 
 | Layer | Technology | Purpose |
 |-------|-----------|---------|
@@ -262,6 +262,3 @@ DEBUG=False
 
 ---
 
-## 📝 License
-
-MIT License — free to use for educational and portfolio purposes.
