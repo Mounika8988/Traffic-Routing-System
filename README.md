@@ -2,13 +2,6 @@
 
 > An AI-powered intelligent transportation system that reduces emergency response time using **Machine Learning** for congestion prediction and **Dijkstra's Algorithm** for real-time optimal routing.
 
-[![Python](https://img.shields.io/badge/Python-3.10+-blue)](https://python.org)
-[![Flask](https://img.shields.io/badge/Flask-3.0-green)](https://flask.palletsprojects.com)
-[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.4-orange)](https://scikit-learn.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
-
----
-
 ## Problem Statement
 
 In modern cities, emergency vehicles (ambulances, fire trucks, police) are frequently delayed by traffic congestion. Traditional GPS systems only optimize for **shortest distance** — they do not:
