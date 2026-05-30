@@ -1,0 +1,700 @@
+{
+  "nodes": {
+    "Gandhi_Hospital": [
+      17.3938,
+      78.4862
+    ],
+    "Yashoda_Hospital": [
+      17.4216,
+      78.458
+    ],
+    "NIMS_Hospital": [
+      17.4063,
+      78.4655
+    ],
+    "Care_Hospital": [
+      17.4237,
+      78.4483
+    ],
+    "Apollo_Hospital": [
+      17.4254,
+      78.4519
+    ],
+    "Musheerabad": [
+      17.4018,
+      78.491
+    ],
+    "Secunderabad_Station": [
+      17.4344,
+      78.5013
+    ],
+    "Paradise_Circle": [
+      17.4432,
+      78.4907
+    ],
+    "Trimulgherry": [
+      17.4582,
+      78.5197
+    ],
+    "Begumpet": [
+      17.4449,
+      78.4724
+    ],
+    "Ameerpet": [
+      17.4375,
+      78.4482
+    ],
+    "Punjagutta": [
+      17.4235,
+      78.4529
+    ],
+    "Somajiguda": [
+      17.4231,
+      78.4596
+    ],
+    "Nampally": [
+      17.3838,
+      78.4735
+    ],
+    "Koti": [
+      17.3867,
+      78.4876
+    ],
+    "Abids": [
+      17.385,
+      78.4741
+    ],
+    "Himayatnagar": [
+      17.3993,
+      78.4819
+    ],
+    "Charminar": [
+      17.3616,
+      78.4747
+    ],
+    "SR_Nagar": [
+      17.4456,
+      78.439
+    ],
+    "Erragadda": [
+      17.453,
+      78.4309
+    ],
+    "Moosapet": [
+      17.4619,
+      78.4321
+    ],
+    "Bowenpally": [
+      17.4762,
+      78.5003
+    ],
+    "Malkajgiri": [
+      17.4571,
+      78.528
+    ],
+    "Banjara_Hills": [
+      17.4154,
+      78.4384
+    ],
+    "Jubilee_Hills": [
+      17.4316,
+      78.4074
+    ],
+    "Madhapur": [
+      17.4486,
+      78.392
+    ],
+    "HITEC_City": [
+      17.4476,
+      78.3815
+    ],
+    "Gachibowli": [
+      17.4401,
+      78.3489
+    ],
+    "Kondapur": [
+      17.464,
+      78.3584
+    ],
+    "KPHB": [
+      17.4934,
+      78.3944
+    ],
+    "Kukatpally": [
+      17.4945,
+      78.414
+    ],
+    "Miyapur": [
+      17.4958,
+      78.3677
+    ],
+    "Mehdipatnam": [
+      17.3947,
+      78.4368
+    ],
+    "Tolichowki": [
+      17.4068,
+      78.4152
+    ],
+    "Uppal": [
+      17.4059,
+      78.5592
+    ],
+    "LB_Nagar": [
+      17.3479,
+      78.5524
+    ],
+    "Dilsukhnagar": [
+      17.3687,
+      78.5268
+    ],
+    "Nacharam": [
+      17.4072,
+      78.5422
+    ],
+    "Hayathnagar": [
+      17.3418,
+      78.5936
+    ],
+    "Vanasthalipuram": [
+      17.3378,
+      78.566
+    ]
+  },
+  "edges": [
+    {
+      "from": "Gandhi_Hospital",
+      "to": "Koti",
+      "distance_km": 1.5,
+      "road_id": "R3",
+      "road_type": "local"
+    },
+    {
+      "from": "Gandhi_Hospital",
+      "to": "Abids",
+      "distance_km": 1.6,
+      "road_id": "R3",
+      "road_type": "local"
+    },
+    {
+      "from": "Gandhi_Hospital",
+      "to": "Musheerabad",
+      "distance_km": 1.0,
+      "road_id": "R3",
+      "road_type": "local"
+    },
+    {
+      "from": "Gandhi_Hospital",
+      "to": "Himayatnagar",
+      "distance_km": 0.8,
+      "road_id": "R3",
+      "road_type": "local"
+    },
+    {
+      "from": "Gandhi_Hospital",
+      "to": "Nampally",
+      "distance_km": 2.0,
+      "road_id": "R3",
+      "road_type": "local"
+    },
+    {
+      "from": "NIMS_Hospital",
+      "to": "Punjagutta",
+      "distance_km": 1.5,
+      "road_id": "R2",
+      "road_type": "arterial"
+    },
+    {
+      "from": "NIMS_Hospital",
+      "to": "Yashoda_Hospital",
+      "distance_km": 1.8,
+      "road_id": "R2",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Yashoda_Hospital",
+      "to": "Somajiguda",
+      "distance_km": 0.3,
+      "road_id": "R2",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Yashoda_Hospital",
+      "to": "Punjagutta",
+      "distance_km": 1.2,
+      "road_id": "R2",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Care_Hospital",
+      "to": "Ameerpet",
+      "distance_km": 1.5,
+      "road_id": "R4",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Care_Hospital",
+      "to": "SR_Nagar",
+      "distance_km": 1.2,
+      "road_id": "R4",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Apollo_Hospital",
+      "to": "Jubilee_Hills",
+      "distance_km": 2.0,
+      "road_id": "R1",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Apollo_Hospital",
+      "to": "Somajiguda",
+      "distance_km": 1.5,
+      "road_id": "R1",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Apollo_Hospital",
+      "to": "Ameerpet",
+      "distance_km": 2.2,
+      "road_id": "R1",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Begumpet",
+      "to": "Paradise_Circle",
+      "distance_km": 3.2,
+      "road_id": "R2",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Begumpet",
+      "to": "Ameerpet",
+      "distance_km": 3.0,
+      "road_id": "R1",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Begumpet",
+      "to": "Somajiguda",
+      "distance_km": 2.5,
+      "road_id": "R2",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Begumpet",
+      "to": "SR_Nagar",
+      "distance_km": 2.8,
+      "road_id": "R4",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Paradise_Circle",
+      "to": "Secunderabad_Station",
+      "distance_km": 1.5,
+      "road_id": "R3",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Paradise_Circle",
+      "to": "Trimulgherry",
+      "distance_km": 4.0,
+      "road_id": "R4",
+      "road_type": "highway"
+    },
+    {
+      "from": "Secunderabad_Station",
+      "to": "Trimulgherry",
+      "distance_km": 3.2,
+      "road_id": "R4",
+      "road_type": "highway"
+    },
+    {
+      "from": "Secunderabad_Station",
+      "to": "Malkajgiri",
+      "distance_km": 4.5,
+      "road_id": "R4",
+      "road_type": "highway"
+    },
+    {
+      "from": "Secunderabad_Station",
+      "to": "Bowenpally",
+      "distance_km": 4.8,
+      "road_id": "R4",
+      "road_type": "highway"
+    },
+    {
+      "from": "Trimulgherry",
+      "to": "Malkajgiri",
+      "distance_km": 3.0,
+      "road_id": "R5",
+      "road_type": "highway"
+    },
+    {
+      "from": "Trimulgherry",
+      "to": "Uppal",
+      "distance_km": 5.5,
+      "road_id": "R5",
+      "road_type": "highway"
+    },
+    {
+      "from": "Malkajgiri",
+      "to": "Uppal",
+      "distance_km": 4.2,
+      "road_id": "R5",
+      "road_type": "highway"
+    },
+    {
+      "from": "Ameerpet",
+      "to": "Punjagutta",
+      "distance_km": 2.0,
+      "road_id": "R3",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Ameerpet",
+      "to": "SR_Nagar",
+      "distance_km": 1.5,
+      "road_id": "R4",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Ameerpet",
+      "to": "Erragadda",
+      "distance_km": 2.5,
+      "road_id": "R4",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Ameerpet",
+      "to": "KPHB",
+      "distance_km": 5.5,
+      "road_id": "R5",
+      "road_type": "highway"
+    },
+    {
+      "from": "Punjagutta",
+      "to": "Somajiguda",
+      "distance_km": 1.2,
+      "road_id": "R1",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Punjagutta",
+      "to": "Banjara_Hills",
+      "distance_km": 2.5,
+      "road_id": "R2",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Somajiguda",
+      "to": "Banjara_Hills",
+      "distance_km": 2.0,
+      "road_id": "R3",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Nampally",
+      "to": "Abids",
+      "distance_km": 0.6,
+      "road_id": "R3",
+      "road_type": "local"
+    },
+    {
+      "from": "Nampally",
+      "to": "Mehdipatnam",
+      "distance_km": 3.5,
+      "road_id": "R6",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Abids",
+      "to": "Koti",
+      "distance_km": 1.0,
+      "road_id": "R3",
+      "road_type": "local"
+    },
+    {
+      "from": "Abids",
+      "to": "Charminar",
+      "distance_km": 3.5,
+      "road_id": "R6",
+      "road_type": "local"
+    },
+    {
+      "from": "Koti",
+      "to": "Himayatnagar",
+      "distance_km": 1.2,
+      "road_id": "R3",
+      "road_type": "local"
+    },
+    {
+      "from": "Koti",
+      "to": "Dilsukhnagar",
+      "distance_km": 5.0,
+      "road_id": "R7",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Himayatnagar",
+      "to": "Musheerabad",
+      "distance_km": 1.5,
+      "road_id": "R3",
+      "road_type": "local"
+    },
+    {
+      "from": "Charminar",
+      "to": "Dilsukhnagar",
+      "distance_km": 4.0,
+      "road_id": "R7",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Charminar",
+      "to": "LB_Nagar",
+      "distance_km": 9.0,
+      "road_id": "R7",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Banjara_Hills",
+      "to": "Jubilee_Hills",
+      "distance_km": 2.2,
+      "road_id": "R1",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Banjara_Hills",
+      "to": "Madhapur",
+      "distance_km": 4.5,
+      "road_id": "R5",
+      "road_type": "highway"
+    },
+    {
+      "from": "Banjara_Hills",
+      "to": "Mehdipatnam",
+      "distance_km": 3.0,
+      "road_id": "R6",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Banjara_Hills",
+      "to": "Tolichowki",
+      "distance_km": 3.5,
+      "road_id": "R6",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Jubilee_Hills",
+      "to": "Madhapur",
+      "distance_km": 3.0,
+      "road_id": "R1",
+      "road_type": "highway"
+    },
+    {
+      "from": "Jubilee_Hills",
+      "to": "Tolichowki",
+      "distance_km": 2.5,
+      "road_id": "R6",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Madhapur",
+      "to": "HITEC_City",
+      "distance_km": 2.0,
+      "road_id": "R2",
+      "road_type": "highway"
+    },
+    {
+      "from": "Madhapur",
+      "to": "SR_Nagar",
+      "distance_km": 3.5,
+      "road_id": "R4",
+      "road_type": "arterial"
+    },
+    {
+      "from": "HITEC_City",
+      "to": "Gachibowli",
+      "distance_km": 3.5,
+      "road_id": "R3",
+      "road_type": "highway"
+    },
+    {
+      "from": "HITEC_City",
+      "to": "Kondapur",
+      "distance_km": 3.0,
+      "road_id": "R5",
+      "road_type": "highway"
+    },
+    {
+      "from": "Gachibowli",
+      "to": "Kondapur",
+      "distance_km": 3.0,
+      "road_id": "R4",
+      "road_type": "highway"
+    },
+    {
+      "from": "Gachibowli",
+      "to": "Tolichowki",
+      "distance_km": 5.0,
+      "road_id": "R6",
+      "road_type": "highway"
+    },
+    {
+      "from": "Gachibowli",
+      "to": "Mehdipatnam",
+      "distance_km": 6.5,
+      "road_id": "R6",
+      "road_type": "highway"
+    },
+    {
+      "from": "Kondapur",
+      "to": "KPHB",
+      "distance_km": 4.0,
+      "road_id": "R5",
+      "road_type": "highway"
+    },
+    {
+      "from": "Kondapur",
+      "to": "Miyapur",
+      "distance_km": 5.5,
+      "road_id": "R5",
+      "road_type": "highway"
+    },
+    {
+      "from": "KPHB",
+      "to": "Kukatpally",
+      "distance_km": 2.5,
+      "road_id": "R7",
+      "road_type": "highway"
+    },
+    {
+      "from": "KPHB",
+      "to": "Miyapur",
+      "distance_km": 4.0,
+      "road_id": "R7",
+      "road_type": "highway"
+    },
+    {
+      "from": "Kukatpally",
+      "to": "Miyapur",
+      "distance_km": 3.0,
+      "road_id": "R8",
+      "road_type": "highway"
+    },
+    {
+      "from": "Erragadda",
+      "to": "Moosapet",
+      "distance_km": 2.0,
+      "road_id": "R4",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Erragadda",
+      "to": "SR_Nagar",
+      "distance_km": 2.0,
+      "road_id": "R4",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Moosapet",
+      "to": "KPHB",
+      "distance_km": 3.5,
+      "road_id": "R5",
+      "road_type": "highway"
+    },
+    {
+      "from": "Moosapet",
+      "to": "Kukatpally",
+      "distance_km": 4.0,
+      "road_id": "R7",
+      "road_type": "highway"
+    },
+    {
+      "from": "Uppal",
+      "to": "Nacharam",
+      "distance_km": 3.5,
+      "road_id": "R5",
+      "road_type": "highway"
+    },
+    {
+      "from": "Uppal",
+      "to": "LB_Nagar",
+      "distance_km": 6.0,
+      "road_id": "R7",
+      "road_type": "highway"
+    },
+    {
+      "from": "Uppal",
+      "to": "Dilsukhnagar",
+      "distance_km": 5.0,
+      "road_id": "R7",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Nacharam",
+      "to": "Dilsukhnagar",
+      "distance_km": 3.0,
+      "road_id": "R7",
+      "road_type": "arterial"
+    },
+    {
+      "from": "LB_Nagar",
+      "to": "Dilsukhnagar",
+      "distance_km": 3.5,
+      "road_id": "R8",
+      "road_type": "arterial"
+    },
+    {
+      "from": "LB_Nagar",
+      "to": "Hayathnagar",
+      "distance_km": 6.5,
+      "road_id": "R8",
+      "road_type": "highway"
+    },
+    {
+      "from": "LB_Nagar",
+      "to": "Vanasthalipuram",
+      "distance_km": 3.0,
+      "road_id": "R8",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Dilsukhnagar",
+      "to": "Vanasthalipuram",
+      "distance_km": 3.5,
+      "road_id": "R8",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Hayathnagar",
+      "to": "Vanasthalipuram",
+      "distance_km": 4.0,
+      "road_id": "R8",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Musheerabad",
+      "to": "Secunderabad_Station",
+      "distance_km": 3.5,
+      "road_id": "R2",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Musheerabad",
+      "to": "Nacharam",
+      "distance_km": 7.0,
+      "road_id": "R5",
+      "road_type": "arterial"
+    },
+    {
+      "from": "Tolichowki",
+      "to": "Mehdipatnam",
+      "distance_km": 2.5,
+      "road_id": "R6",
+      "road_type": "arterial"
+    }
+  ],
+  "source": "Manually curated real Hyderabad roads",
+  "city": "Hyderabad, Telangana, India"
+}

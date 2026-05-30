@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Traffic & Emergency Routing — Hyderabad</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-icon"><i class="fas fa-traffic-light"></i></span>
+      <div class="logo-text">
+        <span class="logo-main">TrafficAI</span>
+        <span class="logo-sub">Hyderabad Emergency Routing</span>
+      </div>
+    </div>
+    <div class="header-status">
+      <span class="status-dot" id="statusDot"></span>
+      <span class="status-label" id="statusLabel">Connecting…</span>
+    </div>
+  </div>
+</header>
+
+<main class="main-grid">
+
+  <!-- LEFT — Controls -->
+  <aside class="panel control-panel">
+    <h2 class="panel-title"><i class="fas fa-map-marked-alt"></i> Set Locations</h2>
+
+    <!-- Mode selector -->
+    <div class="mode-row">
+      <button class="mode-btn active" id="modeOrigin" onclick="setMode('origin')">
+        <i class="fas fa-plus-circle"></i> Set Origin
+      </button>
+      <button class="mode-btn" id="modeDest" onclick="setMode('destination')">
+        <i class="fas fa-map-pin"></i> Set Destination
+      </button>
+    </div>
+    <div class="mode-hint" id="modeHint">👆 Click on the map to set origin</div>
+
+    <!-- Selected locations display -->
+    <div class="location-card" id="originCard">
+      <div class="loc-label"><i class="fas fa-plus-circle" style="color:#c0506a"></i> Origin</div>
+      <div class="loc-value" id="originValue">Not selected</div>
+      <div class="loc-coords" id="originCoords"></div>
+    </div>
+    <div class="location-card" id="destCard">
+      <div class="loc-label"><i class="fas fa-map-pin" style="color:#e09060"></i> Destination</div>
+      <div class="loc-value" id="destValue">Not selected</div>
+      <div class="loc-coords" id="destCoords"></div>
+    </div>
+
+    <!-- OR use dropdown -->
+    <div class="or-divider"><span>or pick from list</span></div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label><i class="fas fa-hospital"></i> Origin</label>
+        <select id="sourceNode" onchange="selectFromDropdown('origin')">
+          <option value="">— select —</option>
+          <optgroup label="🏥 Hospitals">
+            <option value="Gandhi_Hospital">Gandhi Hospital</option>
+            <option value="Yashoda_Hospital">Yashoda Hospital</option>
+            <option value="NIMS_Hospital">NIMS Hospital</option>
+            <option value="Care_Hospital">Care Hospital</option>
+            <option value="Apollo_Hospital">Apollo Hospital</option>
+          </optgroup>
+          <optgroup label="🏙️ Central">
+            <option value="Musheerabad">Musheerabad</option>
+            <option value="Secunderabad_Station">Secunderabad Stn</option>
+            <option value="Paradise_Circle">Paradise Circle</option>
+            <option value="Begumpet">Begumpet</option>
+            <option value="Ameerpet">Ameerpet</option>
+            <option value="Punjagutta">Punjagutta</option>
+            <option value="Somajiguda">Somajiguda</option>
+            <option value="Nampally">Nampally</option>
+            <option value="Koti">Koti</option>
+            <option value="Abids">Abids</option>
+            <option value="Himayatnagar">Himayatnagar</option>
+            <option value="Charminar">Charminar</option>
+            <option value="Trimulgherry">Trimulgherry</option>
+            <option value="Bowenpally">Bowenpally</option>
+            <option value="Malkajgiri">Malkajgiri</option>
+          </optgroup>
+          <optgroup label="🌆 West / IT">
+            <option value="Banjara_Hills">Banjara Hills</option>
+            <option value="Jubilee_Hills">Jubilee Hills</option>
+            <option value="Madhapur">Madhapur</option>
+            <option value="HITEC_City">HITEC City</option>
+            <option value="Gachibowli">Gachibowli</option>
+            <option value="Kondapur">Kondapur</option>
+            <option value="KPHB">KPHB</option>
+            <option value="Kukatpally">Kukatpally</option>
+            <option value="Miyapur">Miyapur</option>
+            <option value="SR_Nagar">SR Nagar</option>
+            <option value="Erragadda">Erragadda</option>
+            <option value="Moosapet">Moosapet</option>
+            <option value="Mehdipatnam">Mehdipatnam</option>
+            <option value="Tolichowki">Tolichowki</option>
+          </optgroup>
+          <optgroup label="🏘️ East">
+            <option value="Uppal">Uppal</option>
+            <option value="LB_Nagar">LB Nagar</option>
+            <option value="Dilsukhnagar">Dilsukhnagar</option>
+            <option value="Nacharam">Nacharam</option>
+            <option value="Hayathnagar">Hayathnagar</option>
+            <option value="Vanasthalipuram">Vanasthalipuram</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-group">
+        <label><i class="fas fa-flag-checkered"></i> Destination</label>
+        <select id="targetNode" onchange="selectFromDropdown('destination')">
+          <option value="">— select —</option>
+          <optgroup label="🚨 Accident Sites">
+            <option value="Uppal">Uppal</option>
+            <option value="LB_Nagar">LB Nagar</option>
+            <option value="Dilsukhnagar">Dilsukhnagar</option>
+            <option value="HITEC_City">HITEC City</option>
+            <option value="Nacharam">Nacharam</option>
+          </optgroup>
+          <optgroup label="🏥 Hospitals">
+            <option value="Gandhi_Hospital">Gandhi Hospital</option>
+            <option value="Yashoda_Hospital">Yashoda Hospital</option>
+            <option value="NIMS_Hospital">NIMS Hospital</option>
+            <option value="Care_Hospital">Care Hospital</option>
+            <option value="Apollo_Hospital">Apollo Hospital</option>
+          </optgroup>
+          <optgroup label="🏙️ Central">
+            <option value="Musheerabad">Musheerabad</option>
+            <option value="Secunderabad_Station">Secunderabad Stn</option>
+            <option value="Paradise_Circle">Paradise Circle</option>
+            <option value="Begumpet">Begumpet</option>
+            <option value="Ameerpet">Ameerpet</option>
+            <option value="Punjagutta">Punjagutta</option>
+            <option value="Somajiguda">Somajiguda</option>
+            <option value="Nampally">Nampally</option>
+            <option value="Koti">Koti</option>
+            <option value="Trimulgherry">Trimulgherry</option>
+            <option value="Malkajgiri">Malkajgiri</option>
+          </optgroup>
+          <optgroup label="🌆 West / IT">
+            <option value="Banjara_Hills">Banjara Hills</option>
+            <option value="Jubilee_Hills">Jubilee Hills</option>
+            <option value="Madhapur">Madhapur</option>
+            <option value="Gachibowli">Gachibowli</option>
+            <option value="Kondapur">Kondapur</option>
+            <option value="KPHB">KPHB</option>
+            <option value="Kukatpally">Kukatpally</option>
+            <option value="Miyapur">Miyapur</option>
+            <option value="Mehdipatnam">Mehdipatnam</option>
+          </optgroup>
+          <optgroup label="🏘️ East">
+            <option value="LB_Nagar">LB Nagar</option>
+            <option value="Hayathnagar">Hayathnagar</option>
+            <option value="Vanasthalipuram">Vanasthalipuram</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+
+    <!-- Conditions -->
+    <div class="form-row">
+      <div class="form-group">
+        <label><i class="fas fa-clock"></i> Hour</label>
+        <input type="number" id="hourInput" min="0" max="23" value="8">
+      </div>
+      <div class="form-group">
+        <label><i class="fas fa-calendar"></i> Day</label>
+        <select id="daySelect">
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday" selected>Friday</option>
+          <option value="Saturday">Saturday</option>
+          <option value="Sunday">Sunday</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label><i class="fas fa-cloud-sun"></i> Weather</label>
+      <select id="weatherSelect">
+        <option value="Clear" selected>☀️ Clear</option>
+        <option value="Cloudy">☁️ Cloudy</option>
+        <option value="Rainy">🌧️ Rainy</option>
+        <option value="Foggy">🌫️ Foggy</option>
+        <option value="Stormy">⛈️ Stormy</option>
+      </select>
+    </div>
+
+    <div class="btn-stack">
+      <button class="btn btn-primary" onclick="findRoute()">
+        <i class="fas fa-route"></i>
+        <span>Find Optimal Route</span>
+        <span class="btn-badge">Dijkstra + ML</span>
+      </button>
+      <button class="btn btn-secondary" onclick="predictAllTraffic()">
+        <i class="fas fa-brain"></i>
+        <span>Predict Traffic</span>
+        <span class="btn-badge">Random Forest</span>
+      </button>
+    </div>
+
+    <!-- Incident Simulator -->
+    <div class="incident-panel">
+      <h3 class="section-subtitle"><i class="fas fa-exclamation-triangle"></i> Simulate Incident</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Road</label>
+          <select id="incidentRoad">
+            <option value="R1">R1</option><option value="R2">R2</option>
+            <option value="R3">R3</option><option value="R4">R4</option>
+            <option value="R5" selected>R5</option><option value="R6">R6</option>
+            <option value="R7">R7</option><option value="R8">R8</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Severity</label>
+          <select id="incidentSeverity">
+            <option value="Medium">Medium</option>
+            <option value="High" selected>High</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn btn-danger" onclick="simulateIncident()">
+        <i class="fas fa-car-crash"></i> Trigger & Reroute
+      </button>
+    </div>
+
+    <a class="map-link" id="mapLink" href="/map" target="_blank">
+      <i class="fas fa-map"></i> Open Full Map
+      <i class="fas fa-external-link-alt" style="margin-left:auto;font-size:11px"></i>
+    </a>
+  </aside>
+
+  <!-- CENTER — Interactive picker map + results -->
+  <section class="panel results-panel">
+
+    <!-- Leaflet picker map -->
+    <div class="picker-header">
+      <span class="section-subtitle" style="margin:0"><i class="fas fa-crosshairs"></i> Click map to set locations</span>
+      <button class="clear-btn" onclick="clearSelections()"><i class="fas fa-times"></i> Clear</button>
+    </div>
+    <div id="pickerMap"></div>
+
+    <!-- Metrics -->
+    <div class="metrics-row">
+      <div class="metric-card" id="metricTime">
+        <div class="metric-icon"><i class="fas fa-clock"></i></div>
+        <div class="metric-body">
+          <div class="metric-value" id="metricTimeVal">--</div>
+          <div class="metric-label">Est. Minutes</div>
+        </div>
+      </div>
+      <div class="metric-card" id="metricDist">
+        <div class="metric-icon"><i class="fas fa-road"></i></div>
+        <div class="metric-body">
+          <div class="metric-value" id="metricDistVal">--</div>
+          <div class="metric-label">Distance km</div>
+        </div>
+      </div>
+      <div class="metric-card" id="metricHops">
+        <div class="metric-icon"><i class="fas fa-project-diagram"></i></div>
+        <div class="metric-body">
+          <div class="metric-value" id="metricHopsVal">--</div>
+          <div class="metric-label">Via nodes</div>
+        </div>
+      </div>
+      <div class="metric-card" id="metricCost">
+        <div class="metric-icon"><i class="fas fa-weight-hanging"></i></div>
+        <div class="metric-body">
+          <div class="metric-value" id="metricCostVal">--</div>
+          <div class="metric-label">Graph Weight</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Route path -->
+    <div class="route-section">
+      <h3 class="section-subtitle"><i class="fas fa-route"></i> Optimal Route</h3>
+      <div class="route-path" id="routePath">
+        <div class="route-empty">
+          <i class="fas fa-route" style="font-size:28px;opacity:0.25"></i>
+          <p>Click map or use dropdowns, then click Find Route</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edge table -->
+    <h3 class="section-subtitle"><i class="fas fa-table"></i> Road Segment Analysis</h3>
+    <div class="table-wrapper">
+      <table class="data-table">
+        <thead><tr><th>From</th><th>To</th><th>Road</th><th>Dist km</th><th>Congestion</th><th>Weight</th></tr></thead>
+        <tbody id="edgeTableBody"><tr><td colspan="6" class="empty-row">No route yet</td></tr></tbody>
+      </table>
+    </div>
+
+    <!-- Incident result -->
+    <div class="incident-result" id="incidentResult" style="display:none">
+      <h3 class="section-subtitle"><i class="fas fa-car-crash"></i> Rerouting Comparison</h3>
+      <div class="comparison-grid">
+        <div class="compare-card before">
+          <div class="compare-label">Before Incident</div>
+          <div class="compare-path" id="beforePath">--</div>
+          <div class="compare-time" id="beforeTime">--</div>
+        </div>
+        <div class="compare-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="compare-card after">
+          <div class="compare-label">After Rerouting</div>
+          <div class="compare-path" id="afterPath">--</div>
+          <div class="compare-time" id="afterTime">--</div>
+        </div>
+      </div>
+      <div class="incident-message" id="incidentMessage"></div>
+    </div>
+
+  </section>
+
+  <!-- RIGHT — Traffic intel -->
+  <aside class="panel traffic-panel">
+    <h2 class="panel-title"><i class="fas fa-chart-bar"></i> Traffic Intelligence</h2>
+    <div class="congestion-legend">
+      <span class="cong-pill low">LOW</span>
+      <span class="cong-pill medium">MED</span>
+      <span class="cong-pill high">HIGH</span>
+    </div>
+    <div class="road-list" id="roadList">
+      <div class="road-empty">
+        <i class="fas fa-broadcast-tower" style="font-size:28px;opacity:0.2"></i>
+        <p>Click "Predict Traffic" to load congestion data</p>
+      </div>
+    </div>
+    <div class="algo-card">
+      <h4 class="algo-title"><i class="fas fa-cog"></i> Algorithm Info</h4>
+      <div class="algo-row"><span class="algo-key">ML Model</span><span class="algo-val">Random Forest</span></div>
+      <div class="algo-row"><span class="algo-key">Routing</span><span class="algo-val">Dijkstra O((V+E)logV)</span></div>
+      <div class="algo-row"><span class="algo-key">Nodes (V)</span><span class="algo-val" id="nodeCount">40</span></div>
+      <div class="algo-row"><span class="algo-key">Edges (E)</span><span class="algo-val" id="edgeCount">76</span></div>
+      <div class="algo-row"><span class="algo-key">Map Data</span><span class="algo-val">OpenStreetMap</span></div>
+      <div class="algo-row"><span class="algo-key">Routing Engine</span><span class="algo-val">OSRM</span></div>
+    </div>
+  </aside>
+
+</main>
+
+<div class="toast" id="toast"></div>
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-spinner">
+    <div class="spinner-ring"></div>
+    <div class="loading-text" id="loadingText">Computing…</div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="/static/js/app.js"></script>
+</body>
+</html>
