@@ -12,33 +12,7 @@ In modern cities, emergency vehicles (ambulances, fire trucks, police) are frequ
 
 This system solves all three problems.
 
----
 
-## Architecture
-
-```
-┌────────────────────────────────────────────────────────┐
-│                     Frontend (HTML/CSS/JS)              │
-│    Dashboard • Route Visualizer • Traffic Heatmap       │
-└────────────────────────┬───────────────────────────────┘
-                         │  REST API (Flask)
-┌────────────────────────▼───────────────────────────────┐
-│                    Flask Backend                         │
-│  ┌───────────────┐      ┌──────────────────────────┐   │
-│  │ Traffic Routes │      │   Routing Routes          │   │
-│  │ /predict       │      │   /find  /reroute         │   │
-│  └───────┬───────┘      └──────────┬───────────────┘   │
-│          │                          │                    │
-│  ┌───────▼───────┐      ┌──────────▼───────────────┐   │
-│  │  ML Module     │      │   Graph Module            │   │
-│  │  Random Forest │      │   Dijkstra Algorithm      │   │
-│  └───────┬───────┘      └──────────┬───────────────┘   │
-│          │                          │                    │
-│  ┌───────▼──────────────────────────▼───────────────┐  │
-│  │  Folium Visualizer  •  traffic_data.csv           │  │
-│  └───────────────────────────────────────────────────┘  │
-└────────────────────────────────────────────────────────┘
-```
 
 ---
 
@@ -129,88 +103,6 @@ Open your browser: **http://localhost:5000**
 
 ---
 
-## API Endpoints
-
-### Traffic Prediction
-```http
-POST /api/traffic/predict
-{
-  "hour": 8,
-  "day_of_week": "Monday",
-  "weather": "Rainy",
-  "road_id": "R2",
-  "vehicle_count": 180
-}
-→ {"predicted_class": "High", "confidence": 0.88, ...}
-```
-
-### Route Optimization
-```http
-POST /api/route/find
-{
-  "source": "Hospital",
-  "target": "Accident_Site",
-  "hour": 8,
-  "day_of_week": "Monday",
-  "weather": "Clear"
-}
-→ {"path": ["Hospital", "Junction_C", ...], "estimated_minutes": 9.7, ...}
-```
-
-### Dynamic Rerouting
-```http
-POST /api/route/reroute
-{
-  "source": "Hospital",
-  "target": "Accident_Site",
-  "traffic_update": {"R5": "High", "R4": "High"}
-}
-```
-
-### Incident Simulation
-```http
-POST /api/route/simulate_incident
-{"road_id": "R5", "severity": "High"}
-→ {"route_changed": true, "route_before": {...}, "route_after": {...}}
-```
-
----
-
-## ML Model Performance
-
-```
-Test Accuracy: 98.60%
-Cross-Validation: 98.12% ± 0.35%
-
-              precision  recall  f1-score
-  High           0.99    0.99      0.99
-  Low            0.99    0.98      0.99
-  Medium         0.97    0.98      0.98
-
-Top Features:
-  vehicle_count   47.1%
-  hour            31.6%
-  weather          9.6%
-  road_type        6.5%
-```
-
----
-
-## Road Network
-
-The system models 7 intersections and 11 road segments in Hyderabad:
-
-```
-Hospital ──R1──→ Junction_A ──R2──→ Junction_B
-   │                  │                  │
-   R8               R4                 R7
-   │                  ↓                  ↓
-   └──────────→ Junction_C ──R5──→ Junction_D ──R6──→ Accident_Site
-                                         ↑
-                                    City_Center
-```
-
----
 
 ## Deployment (Render / Railway)
 
@@ -227,18 +119,6 @@ Set environment variables:
 SECRET_KEY=your-secret-key-here
 DEBUG=False
 ```
-
----
-
-## Future Enhancements
-
-- [ ] Live Google Maps / OpenStreetMap integration
-- [ ] IoT traffic sensor data ingestion
-- [ ] LSTM for time-series traffic forecasting
-- [ ] Reinforcement learning for adaptive signal control
-- [ ] WebSocket for real-time push updates
-- [ ] Mobile app (React Native)
-- [ ] Multi-vehicle fleet coordination
 
 ---
 
